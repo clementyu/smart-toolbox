@@ -1,0 +1,166 @@
+/* style.css - Styling for the RFID Inventory Tracker */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+}
+
+h1 {
+    color: #4a4a4a;
+    margin-bottom: 1.5rem;
+}
+
+.status-panel {
+    margin-bottom: 1.5rem;
+}
+
+.status-indicator {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.status-indicator.connected {
+    background-color: #28a745;
+}
+
+.status-indicator.disconnected {
+    background-color: #dc3545;
+}
+
+.controls, .inventory-controls {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.controls button, .inventory-controls button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#start-btn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+#start-btn:hover {
+    background-color: #0056b3;
+}
+
+#stop-btn {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+#stop-btn:hover {
+    background-color: #5a6268;
+}
+
+#read-tag-btn {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+#read-tag-btn:hover {
+    background-color: #138496;
+}
+
+#export-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+#export-btn:hover {
+    background-color: #218838;
+}
+
+#import-btn {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+#import-btn:hover {
+    background-color: #e0a800;
+}
+
+
+.read-tag-container {
+    display: none; /* Hide by default */
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #e9ecef;
+    border-radius: 8px;
+}
+
+.read-tag-container.visible {
+    display: block; /* Show when .visible class is added */
+}
+
+#last-scanned-epc {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #007bff;
+    word-break: break-all;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-top: 2rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #f8f9fa;
+    color: #495057;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tbody tr:hover {
+    background-color: #e2e6ea;
+}
+
+.low-count {
+    color: red;
+}
