@@ -148,3 +148,31 @@ You can customize the application's behavior using the following command-line ar
 
 To **gracefully shut down** the application, press `Ctrl+C` in the terminal where the program is running. A log file named **`epc_scan_data.tsv`** will be saved in your project's root directory.
 
+
+### [Optional] Make the server running once Raspberry Pi is powered on
+Use the following command to launch the Smart Toolbox webserver and RFID scanning while Raspberry Pi booted up. 
+
+* Install pm2
+
+```bash
+sudo apt install nodejs npm
+sudo npm install -g pm2
+```
+
+* Enable pm2 auto-statup  
+```bash
+pm2 startup
+```
+
+Then you will be prompt a command to enable auto-startup. Copy and paste the command and launch as below. The following command line was what I've received. It might be different in your environment.  
+
+```bash
+sudo env PATH=$PATH:/home/pi/.nvm/versions/node/v22.18.0/bin /usr/local/lib/node_modules/pm2/bin/pm2 startup systemd -u pi --hp /home/pi
+```
+
+```bash
+cd /home/pi/smart-toolbox
+pm2 start index.js -- --port /dev/ttyUSB0 --baudrate 115200
+pm2 save
+sudo reboot -p
+```
